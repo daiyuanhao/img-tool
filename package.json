@@ -1,0 +1,17 @@
+{
+  "name": "img-tool",
+  "version": "1.0.0",
+  "description": "自动化工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dyh",
+  "license": "ISC",
+  "bin": {
+    "img-tool": "index.js"
+  },
+  "dependencies": {
+    "sharp": "^0.26.2"
+  }
+}
