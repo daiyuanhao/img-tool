@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
-const { dirname, resolve } = require('path')
 const sharp = require('sharp')
 
 process.ROOT = __dirname
@@ -30,11 +29,11 @@ const intoPath = `${process.ROOT}/images`
 const outPath = `${process.ROOT}/out`
 mkdirSync(outPath)
 
-const files = fs.readdirSync(intoPath)
 
 // 批量修改图片大小
 const batchImgResize = async () => {
-  for(let i=0;i<files.length;i++){
+  const files = fs.readdirSync(intoPath)
+  for(let i = 0; i < files.length; i++){
     const size = getFileSize(`${intoPath}/${files[i]}`)
     console.log(`图片大小: ${size}`)
     await imgResize(`${intoPath}/${files[i]}`, `${outPath}/${files[i]}`, 800)
