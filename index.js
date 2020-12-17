@@ -7,7 +7,7 @@ process.ROOT = __dirname
 
 // 创建文件夹方法
 const mkdirSync = async (dirname) => {
-  if(!fs.existsSync(dirname)){
+  if (!fs.existsSync(dirname)) {
     fs.mkdirSync(dirname)
   }
 }
@@ -25,10 +25,10 @@ mkdirSync(outPath)
 // 批量修改图片大小
 const batchImgResize = async (width) => {
   const files = fs.readdirSync(intoPath)
-  if(files.length ===0) {
+  if (files.length === 0) {
     console.log('当前目录下没有文件')
   }
-  for(let i = 0; i < files.length; i++){
+  for (let i = 0; i < files.length; i++) {
     const size = getFileSize(`${intoPath}/${files[i]}`)
     console.log(`图片大小: ${size}`)
     await sharp(`${intoPath}/${files[i]}`).resize(width).toFile(`${outPath}/${files[i]}`)
@@ -37,4 +37,6 @@ const batchImgResize = async (width) => {
   }
 }
 
-batchImgResize(800)
+const width = 800     // 目标宽度
+// 运行
+batchImgResize(width)
